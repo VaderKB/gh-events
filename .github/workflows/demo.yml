@@ -3,17 +3,17 @@ run-name: Deploy workflow
 on : 
   pull_request:
     types: [opened, edited]
-    branches:
-      - releases/**
+#    branches:
+#      - releases/**
 
   workflow_dispatch:
-  push:
-    branches:
-      - main
-      - releases/**
-      - dev-*
-      - feat/**
-      - feat**
+ # push:
+ #   branches:
+ #     - main
+ #     - releases/**
+ #     - dev-*
+ #     - feat/**
+ #     - feat**
 
 jobs:
     deploy:
