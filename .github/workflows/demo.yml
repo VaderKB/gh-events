@@ -1,9 +1,19 @@
 name: Event Demo 1
+run-name: Deploy workflow
 on : 
   pull_request:
     types: [opened, edited]
+    branches:
+      - releases/**
+
   workflow_dispatch:
   push:
+    branches:
+      - main
+      - releases/**
+      - dev-*
+      - feat/**
+
 jobs:
     deploy:
         runs-on: ubuntu-latest
