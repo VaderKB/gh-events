@@ -1,5 +1,9 @@
 name: Event Demo 1
-on : ...
+on : 
+  pull_request:
+    types: [opened, edited]
+  workflow_dispatch:
+  push:
 jobs:
     deploy:
         runs-on: ubuntu-latest
@@ -7,6 +11,8 @@ jobs:
             - name: Output Event Data
               run: echo "${{ toJSON(github.event) }}"
             - name: Get Code
-              run: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Deploy Project
               run: echo "Deploying project ...."  
+            - name: Destroying infra
+              run: echo "Destroying infra ...."
