@@ -3,16 +3,17 @@ run-name: Deploy workflow
 on : 
   pull_request:
     types: [opened, edited]
-    branches:
-      - releases/**
+#    branches:
+#      - releases/**
 
   workflow_dispatch:
-  push:
-    branches:
-      - main
-      - releases/**
-      - dev-*
-      - feat/**
+ # push:
+ #   branches:
+ #     - main
+ #     - releases/**
+ #     - dev-*
+ #     - feat/**
+ #     - feat**
 
 jobs:
     deploy:
@@ -23,6 +24,8 @@ jobs:
             - name: Get Code
               uses: actions/checkout@v4
             - name: Deploy Project
-              run: echo "Deploying project ...."  
+              run: echo "Deploying project ...."
+            - name: Run from feature1
+              run: echo "feature run"  
             - name: Destroying infra
               run: echo "Destroying infra ...."
